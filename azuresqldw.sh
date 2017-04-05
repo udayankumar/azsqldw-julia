@@ -51,6 +51,5 @@ SQL_CONNECTRION_STRING=$( printf "Driver={ODBC Driver 13 for SQL Server};Server=
 docker run -it -v $(pwd):/usr/azuresqljulia -e SQL_CONNECTION_STRING="${SQL_CONNECTRION_STRING}"  gonzaloruiz/azuresqljulia 
 
 # Execute the following Commands while you are in the docker container
-
 # Run the Julia Script
-julia /usr/azuresqljulia/azureodbc.jl "${SQL_CONNECTION_STRING}"
+# julia /usr/azuresqljulia/azureodbc.jl "${SQL_CONNECTION_STRING}"
