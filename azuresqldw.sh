@@ -2,10 +2,10 @@
 # docker run azuresdk/azure-cli-python:latest
 
 # Create Resource Group and Datawarehouse
-LOCATION=westeurope
-RESOURCE_GROUP_NAME=jlazdw01
-ADMIN_USER=gonzalorcsa
-ADMIN_PASSWORD=GrC123456!
+LOCATION=YOUR_LOCATION #westeurope
+RESOURCE_GROUP_NAME=YOUR_RESOURCE_GROUP
+ADMIN_USER=YOUR_USER
+ADMIN_PASSWORD=YOUR_PWD
 
 # Create Resource Group
 az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
