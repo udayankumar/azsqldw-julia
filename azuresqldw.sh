@@ -16,21 +16,21 @@ az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
 
 
 # Create Azure SQL  Server
-az sql server create --administrator-login-password $ADMIN_PASSWORD \
-                     --administrator-login $ADMIN_USER \
-                     --location $LOCATION \
-                     --name $RESOURCE_GROUP_NAME \
-                     --resource-group $RESOURCE_GROUP_NAME
+az sql server create --admin-password $ADMIN_PASSWORD \
+                     --admin-user $ADMIN_USER \
+                      --location $LOCATION \
+                      --name $RESOURCE_GROUP_NAME \
+                      --resource-group $RESOURCE_GROUP_NAME
+
 # Get Public IP
 MY_IP=$(curl ipinfo.io/ip)
 
 # Create Firewall rule so you can connect from your IP
-az sql server firewall create --end-ip-address $MY_IP \
-                                   --start-ip-address $MY_IP \
-                                   --resource-group $RESOURCE_GROUP_NAME \
-                                   --server $RESOURCE_GROUP_NAME \
-                                   --name "OFFICE01"
-
+az sql server firewall-rule create --end-ip-address $MY_IP \
+                                    --start-ip-address $MY_IP \
+                                    --resource-group $RESOURCE_GROUP_NAME \
+                                    --server $RESOURCE_GROUP_NAME \
+                                    --name "OFFICE01"
 
 
 # Create Azure SQL DW , this will create a DW with 100 DWU
