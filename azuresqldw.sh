@@ -7,6 +7,10 @@ RESOURCE_GROUP_NAME=YOUR_RESOURCE_GROUP
 ADMIN_USER=YOUR_USER
 ADMIN_PASSWORD=YOUR_PWD
 
+# Note : This Script uses azure-cli (2.0.2) and sql (2.0.0) , you can check your version with az --version
+# You can update your CLI with 
+az component update
+
 # Create Resource Group
 az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
 
@@ -27,8 +31,7 @@ az sql server firewall create --end-ip-address $MY_IP \
                                    --server $RESOURCE_GROUP_NAME \
                                    --name "OFFICE01"
 
-# Update SQL Provider (you might not have dw if you installed the cli a while ago)
-az component update
+
 
 # Create Azure SQL DW , this will create a DW with 100 DWU
 az sql dw create --name $RESOURCE_GROUP_NAME \
